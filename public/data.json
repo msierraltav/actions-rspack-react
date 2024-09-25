@@ -1,14 +1,26 @@
 [
   {
-    "id":1,
-    "name": "casablanca"    
+    "id": 1,
+    "name": "casablanca"
   },
   {
-    "id":2,
+    "id": 2,
     "name": "El marciano"
   },
   {
     "id": 3,
     "name": "La Ballena"
+  },
+  {
+    "id": 4,
+    "name": "Estrapingo"
+  },
+  {
+    "id": 5,
+    "name": "El hombre invisible"
+  },
+  {
+    "id": 6,
+    "name": "Donatello"
   }
 ]

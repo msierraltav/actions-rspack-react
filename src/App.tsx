@@ -14,7 +14,7 @@ interface TData {
 function App() {
   // this was a interview question, take data from the data.json
   // then show it in a list
-  // and ina search component filter the list
+  // and in search component filter the list
   // when a element of the list is clicked , delete it.
 
   const [initialData, setInitialData] = useState<TData[]>([]);
