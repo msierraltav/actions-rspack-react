@@ -1,0 +1,34 @@
+name: hello-world
+on: [push]
+jobs :
+    hello-world:
+        runs-on: ubuntu-latest
+        steps:
+            # first step is a hello world
+            - name : My first step
+              id: ip
+              uses: haythem/public-ip@v1.3
+
+            # show the hello world
+            - name : setup node 
+              run: echo Hello world from ${{ steps.ip.outputs.ipv4 }}! #bash
+
+            - name: show actor
+              run: echo "USERNAME=${{ github.actor}}" >> $GITHUB_ENV
+
+            # setup node
+            - uses: actions/checkout@v4
+
+            - name: setup node
+              uses: actions/setup-node@v4
+              with:
+                node-version: lts/*
+      
+            - name: install pnpm
+              uses: pnpm/action-setup@v4
+              with: 
+                version: 9
+
+            # step to execute
+            - name : build app
+              run: pnpm run build
