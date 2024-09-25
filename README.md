@@ -11,6 +11,7 @@ so i'll write here some tasks that i want to achieve.
 [x] list that data
 [x] filter the data
 [x] when click on an element , delete that element.
+[] get data from any api
 [] add routes to add more "experiments"
 [] implement test using jest
 

@@ -23,28 +23,34 @@ function App() {
 
   const handleDelete = (id) => {
     setDataList(dataList.filter((item) => item.id !== id));
-  }
+  };
 
   const handleSearchText = (text) => {
-    if(text.length > 2){
-      setDataList(dataList.filter((item) => item.name.toLowerCase().includes(text.toLowerCase())));
-    }else{
+    if (text.length > 2) {
+      setDataList(
+        dataList.filter((item) =>
+          item.name.toLowerCase().includes(text.toLowerCase())
+        )
+      );
+    } else {
       setDataList(initialData);
     }
-  }
+  };
 
   // using axios. the tip is the response from the file is "data"
   const axios = require("axios");
   useEffect(() => {
     const getData = async () => {
-      await axios.get("/data.json").then((response) => {
-        return response.data;
-      })
-      .then((data) => {
-        setInitialData(data);
-        setDataList(data);
-      })
-      .catch(error => console.log(error));
+      await axios
+        .get("/data.json")
+        .then((response) => {
+          return response.data;
+        })
+        .then((data) => {
+          setInitialData(data);
+          setDataList(data);
+        })
+        .catch((error) => console.log(error));
     };
 
     getData();
@@ -67,22 +73,30 @@ function App() {
   return (
     <>
       <h1>List searcher!!! </h1>
-      <div>
-        <input type="text"
+      <div className="block">
+        <input
+          type="text"
           placeholder="search..."
-          onChange={(e) => {handleSearchText(e.target.value)}}
-        >
-        </input>
+          onChange={(e) => {
+            handleSearchText(e.target.value);
+          }}
+        ></input>
       </div>
-      <ul>
-        {dataList.length > 0  && dataList.map((data) => (
-            <li key={data.id}
-              onClick={() => {handleDelete(data.id)}}
-            >
-              {data.name}
-            </li>
-          ))}
-      </ul>
+      <div>
+        <ul>
+          {dataList.length > 0 &&
+            dataList.map((data) => (
+              <li
+                key={data.id}
+                onClick={() => {
+                  handleDelete(data.id);
+                }}
+              >
+                {data.name}
+              </li>
+            ))}
+        </ul>
+      </div>
     </>
   );
 }
