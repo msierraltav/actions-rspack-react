@@ -16,6 +16,7 @@ function App() {
   // then show it in a list
   // and in search component filter the list
   // when a element of the list is clicked , delete it.
+  // add test in jest!!, por que si!
 
   const [initialData, setInitialData] = useState<TData[]>([]);
   const [dataList, setDataList] = useState<TData[]>([]);
