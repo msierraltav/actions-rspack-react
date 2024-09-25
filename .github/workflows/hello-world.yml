@@ -1,4 +1,5 @@
 name: hello-world
+run-name: Hello world from github actions!
 on: [push]
 jobs :
     hello-world:
@@ -29,6 +30,9 @@ jobs :
               with: 
                 version: 9
 
+            - name: install dependences
+              run: pnpm install
+
             # step to execute
-            - name : build app
+            - name: build app
               run: pnpm run build

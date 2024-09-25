@@ -1,0 +1,28 @@
+name: hello-distpatch!
+run-name: a example dispatch!
+on: 
+    workflow_dispatch:
+        inputs:
+            alerta:
+                description: 'nivel'
+                required: true
+                default: medio
+                type: choice
+                options:
+                    - bajo
+                    - medio
+                    - alto
+            tags:
+                description: 'optional'
+                required: false
+                type: boolean
+            environment:
+                description : 'objectivo'
+                required: true
+                type: string
+jobs:
+    resultado:
+        runs-on: ubuntu-latest
+        steps:
+            - name : run script
+              run : echo  alerta =  ${{inputs.alerta}} -tags ${{inputs.tags}} ${{inputs.environment}} 
